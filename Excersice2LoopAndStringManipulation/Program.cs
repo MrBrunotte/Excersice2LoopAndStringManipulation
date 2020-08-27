@@ -50,8 +50,8 @@ namespace Excersice2LoopAndStringManipulation
         private static void TicketPrice()
         {
             Console.WriteLine("##### Welcome to the Cineama! #####");
-            Console.WriteLine("1. Buy one single ticket.");
-            Console.WriteLine("2. Buy two or more tickets.");
+            Console.WriteLine("\t1. Buy one single ticket.");
+            Console.WriteLine("\t2. Buy two or more tickets.");
 
             switch (Console.ReadLine())
             {
@@ -71,14 +71,13 @@ namespace Excersice2LoopAndStringManipulation
             string strNumber, strTickets;
             int age, tickets;
             int i = 0;
-            int ticket = 0;
+            //int ticket = 0;
             int youth = 0;
             int adult = 0;
             int senior = 0;
             int totaltickets = 0;
 
-
-            Console.WriteLine("How many ticket's do you want to buy?");
+            Console.Write("\tHow many ticket's do you want to buy?\t");
             strTickets = Console.ReadLine();
             tickets = int.Parse(strTickets);
 
@@ -102,17 +101,10 @@ namespace Excersice2LoopAndStringManipulation
             } while (i < tickets);
 
             totaltickets = youth + adult + senior;
-            Console.WriteLine("You get a total of " + tickets + " tickets.");
-            Console.WriteLine("Your total ticket price is: " + totaltickets +"kr");
-            
+            Console.WriteLine("\tYou get a total of " + tickets + " tickets.");
+            Console.WriteLine("\tYour total ticket price is: " + totaltickets +"kr\n");
 
-
-            
-
-            // if statement to give user correct ticket price
-            
-            //Menu();
-
+            Menu();
         }
 
 
@@ -120,7 +112,7 @@ namespace Excersice2LoopAndStringManipulation
         {
             string number;
             int age;
-            int ticket;
+            //int ticket;
             Console.Write("Please enter your age: ");
             number = Console.ReadLine();
             age = int.Parse(number);
