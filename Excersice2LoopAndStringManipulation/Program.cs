@@ -18,8 +18,29 @@ namespace Excersice2LoopAndStringManipulation
             Console.WriteLine("1. Cinema ticket price.");
             Console.WriteLine("2. Repeat word 10 times.");
             Console.WriteLine("3. Split sentence.");
-            Console.WriteLine("\n\n\n");
+            Console.WriteLine("Q. Quit.");
+            Console.WriteLine("\n");
 
+            switch (Console.ReadLine())
+            {
+                case "1:":
+                    TicketPrice();
+                    break;
+                case "2":
+                    //RepeatWord();
+                    break;
+                case "3":
+                    //SplitSentence();
+                    break;
+                case "Q":
+                    Environment.Exit(0);
+                    break;
+                case "q":
+                    Environment.Exit(0);
+                    break;
+                default:
+                    break;    
+            }
         }
         private static void TicketPrice()
         {
