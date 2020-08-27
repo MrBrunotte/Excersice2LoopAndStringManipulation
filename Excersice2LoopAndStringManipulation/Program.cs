@@ -83,8 +83,10 @@ namespace Excersice2LoopAndStringManipulation
 
             // declare a stringArray with 10 elements 
             string[] sentences = new string[10];
+
             // the user is asked to type a string message
             Console.WriteLine("\n\tGive me a senctence and I will repeat it ten times for you:\n\t");
+
             // user input is stored in the variable sentence
             string sentence = Console.ReadLine();
 
@@ -104,6 +106,7 @@ namespace Excersice2LoopAndStringManipulation
             sentences[9] = sentence;
 
             Console.WriteLine("\tYour sentence repeated 10 times:");
+
             //for loop to print out the 10 elements
             foreach (var item in sentences)
             {
