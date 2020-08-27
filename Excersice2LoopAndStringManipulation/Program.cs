@@ -35,7 +35,7 @@ namespace Excersice2LoopAndStringManipulation
                     RepeatWord();
                     break;
                 case "3":
-                    //SplitSentence();
+                    SplitSentence();
                     break;
                 case "Q":
                     // If user uses Q to quit
@@ -50,16 +50,41 @@ namespace Excersice2LoopAndStringManipulation
             }
         }
 
+        private static void SplitSentence()
+        {
+            Console.WriteLine("\t##### Split the sentence #####\n");
+            Console.WriteLine("\tYou will be asked to enter a sentence of a least three words.");
+            Console.WriteLine("\t- The program will split the sentence at every space.");
+            Console.WriteLine("\t- The program will then pick the third word from your sentence.");
+            Console.WriteLine("\t- The program will print this third word.");
+
+            // Ask user for a three word sentence
+            Console.WriteLine("\n\tGive me a senctence of at least three words and I will print the third word!\n\t");
+            // Save input in the variable inputSentence
+            string inputSentence = Console.ReadLine();
+
+            // Message to user to confirm what they submitted
+            Console.WriteLine("\n\tYou wrote:" + "\t" + inputSentence + "\n");
+
+            // Split the sentence into a stringArray
+            string[] splitSentence = inputSentence.Split(" ");
+            
+            Console.WriteLine("\tThe third word in your sentence is: " + splitSentence[2] + "\n");
+
+            // directs the user back to the main menu
+            Menu();
+        }
+
         private static void RepeatWord()
         {
             Console.WriteLine("\t##### Repetition #####\n");
-            Console.WriteLine("\tYou will be asked to enter a sentence of your choise.");
+            Console.WriteLine("\tYou will be asked to enter a sentence of your choice.");
             Console.WriteLine("\tThe program will repeat the sentence ten times!");
 
             // declare a stringArray with 10 elements 
             string[] sentences = new string[10];
             // the user is asked to type a string message
-            Console.WriteLine("\n\tGive me a sencence and I will repeat it ten times for you:\n\t");
+            Console.WriteLine("\n\tGive me a senctence and I will repeat it ten times for you:\n\t");
             // user input is stored in the variable sentence
             string sentence = Console.ReadLine();
 
@@ -162,7 +187,8 @@ namespace Excersice2LoopAndStringManipulation
             Console.WriteLine("\tYou get a total of " + tickets + " tickets.");
             Console.WriteLine("\tYour total ticket price is: " + totaltickets +"kr\n");
 
-            
+            // directs the user back to the main menu
+            Menu();
         }
 
 
