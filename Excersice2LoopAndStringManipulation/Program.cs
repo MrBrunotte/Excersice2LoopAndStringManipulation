@@ -135,9 +135,9 @@ namespace Excersice2LoopAndStringManipulation
             // if statement to give user correct ticket price
             if (age < 20)
                 Console.WriteLine("\nYou are under 20 years old! \nYour ticket price is: 80 kr.");
-            if (age > 64)
+            else if (age > 64)
                 Console.WriteLine("\nYou are a senior over 64 years! \nYour ticket price is: 90 kr.");
-            if (age > 20 && age < 64)
+            else if (age > 20 && age < 64)
                 Console.WriteLine("\nSince you are not a senior or youth! \nYour ticket price is: 120 kr.");
             else
                 Console.WriteLine("\nSomething went wrong! Did you really enter a digit number?");
