@@ -18,7 +18,7 @@ namespace Excersice2LoopAndStringManipulation
         private static void Menu()
         {
             // Huvudmeny
-            Console.WriteLine("\n########## Main Menu!##########\n");
+            Console.WriteLine("\n\t########## Main Menu!##########\n");
             Console.WriteLine("\tChoose a number (or Q to exit.)");
             Console.WriteLine("\n\t1. Cinema ticket price.");
             Console.WriteLine("\t2. Repeat word 10 times.");
@@ -32,7 +32,7 @@ namespace Excersice2LoopAndStringManipulation
                     TicketPrice();
                     break;
                 case "2":
-                    //RepeatWord();
+                    RepeatWord();
                     break;
                 case "3":
                     //SplitSentence();
@@ -49,10 +49,45 @@ namespace Excersice2LoopAndStringManipulation
                     break;    
             }
         }
+
+        private static void RepeatWord()
+        {
+            Console.WriteLine("\t##### Repetition #####\n");
+            Console.WriteLine("\tYou will be asked to enter a sentence of your choise.");
+            Console.WriteLine("\tThe program will repeat the sentence ten times!");
+
+            string[] sentences = new string[10];
+            Console.WriteLine("\n\tGive me a sencence and I will repeat it ten times for you:\n\t");
+            string sentence = Console.ReadLine();
+
+            Console.WriteLine("\n\tYou wrote:" + "\t" + sentence +"\n");
+
+            sentences[0] = sentence;
+            sentences[1] = sentence;
+            sentences[2] = sentence;
+            sentences[3] = sentence;
+            sentences[4] = sentence;
+            sentences[5] = sentence;
+            sentences[6] = sentence;
+            sentences[7] = sentence;
+            sentences[8] = sentence;
+            sentences[9] = sentence;
+
+            Console.WriteLine("\tYour sentence repeated 10 times:\n");
+            foreach (var item in sentences)
+            {
+                Console.Write("\t" + item);
+            }
+            Console.WriteLine("\n");
+
+            // directs the user back to the main menu
+            Menu();
+        }
+
         private static void TicketPrice()
         {
             // Method for first exercise
-            Console.WriteLine("##### Welcome to the Cineama! #####");
+            Console.WriteLine("\t##### Welcome to the Cineama! #####");
             Console.WriteLine("\t1. Buy one single ticket.");
             Console.WriteLine("\t2. Buy two or more tickets.");
 
@@ -83,6 +118,7 @@ namespace Excersice2LoopAndStringManipulation
             int youth = 0;
             int adult = 0;
             int senior = 0;
+            int free = 0;
             int totaltickets = 0;
 
             // input from user and parsing it to correct format: int
@@ -99,12 +135,14 @@ namespace Excersice2LoopAndStringManipulation
                 age = int.Parse(strNumber);
                 Console.WriteLine("", i);
 
-                if (age < 20)
+                if (age > 5 && age < 20)
                     youth += 80;
-                else if (age > 64)
+                else if (age > 64 && age < 100)
                     adult += 90;
                 else if (age > 20 && age < 64) 
                     senior += 120;
+                else if (age < 5 || age > 100)
+                    free += 0;
                 else
                     Console.WriteLine("Something went wrong! Did you really enter a digit number?");
                 
@@ -113,12 +151,11 @@ namespace Excersice2LoopAndStringManipulation
             } while (i < tickets);
 
             // sums up the tickets and prints it out in the console.
-            totaltickets = youth + adult + senior;
+            totaltickets = youth + adult + senior + free;
             Console.WriteLine("\tYou get a total of " + tickets + " tickets.");
             Console.WriteLine("\tYour total ticket price is: " + totaltickets +"kr\n");
 
-            // directs the user back to the main menu
-            Menu();
+            
         }
 
 
@@ -133,12 +170,14 @@ namespace Excersice2LoopAndStringManipulation
             age = int.Parse(number);
 
             // if statement to give user correct ticket price
-            if (age < 20)
+            if (age > 5 && age < 20)
                 Console.WriteLine("\nYou are under 20 years old! \nYour ticket price is: 80 kr.");
-            else if (age > 64)
+            else if (age > 64 && age < 100)
                 Console.WriteLine("\nYou are a senior over 64 years! \nYour ticket price is: 90 kr.");
             else if (age > 20 && age < 64)
                 Console.WriteLine("\nSince you are not a senior or youth! \nYour ticket price is: 120 kr.");
+            else if (age < 5 || age > 100)
+                Console.WriteLine("\nYou go FREE!! Everybody under 5 and over 100 years old goes to the cinema FREE!!");
             else
                 Console.WriteLine("\nSomething went wrong! Did you really enter a digit number?");
 
