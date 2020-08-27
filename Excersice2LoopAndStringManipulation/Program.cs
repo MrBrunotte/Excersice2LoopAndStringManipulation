@@ -14,16 +14,17 @@ namespace Excersice2LoopAndStringManipulation
         private static void Menu()
         {
             // Huvudmeny
-            Console.WriteLine("\nWelcome to Your Little Cinema Theater!\n\n");
-            Console.WriteLine("1. Cinema ticket price.");
-            Console.WriteLine("2. Repeat word 10 times.");
-            Console.WriteLine("3. Split sentence.");
-            Console.WriteLine("Q. Quit.");
-            Console.WriteLine("\n");
+            Console.WriteLine("\n########## Main Menu!##########\n");
+            Console.WriteLine("\tChoose a number (or Q to exit.)");
+            Console.WriteLine("\n\t1. Cinema ticket price.");
+            Console.WriteLine("\t2. Repeat word 10 times.");
+            Console.WriteLine("\t3. Split sentence.");
+            Console.WriteLine("\n\tQ. Quit.\n");
 
+            // Switch statement to call correct method according to user choice.
             switch (Console.ReadLine())
             {
-                case "1:":
+                case "1":
                     TicketPrice();
                     break;
                 case "2":
@@ -47,10 +48,33 @@ namespace Excersice2LoopAndStringManipulation
             // Variable declaration
             string number;
             int age;
-            // options
-            Console.WriteLine("1. Please enter you age:");
+            // user enters age
+            // age is converted to int
+
+            Console.WriteLine("##### Welcome to the Cineama! #####");
+            Console.Write("1. Please enter you age: ");
             number = Console.ReadLine();
             age = int.Parse(number);
+
+            // if statement to give user correct ticket price
+            if (age < 20)
+            {
+                Console.WriteLine("\nYou are under 20 years old! \nYour ticket price is: 80 kr.");
+                Menu();
+            }
+            if (age > 64)
+            {
+                Console.WriteLine("\nYou are a senior over 64 years! \nYour ticket price is: 90 kr.");
+                Menu();
+            }
+            else
+            {
+                Console.WriteLine("\nSince you are not a senior or youth! \nYour ticket price is: 120 kr.");
+                Menu();
+            }
+                
+
+
         }
 
     }
