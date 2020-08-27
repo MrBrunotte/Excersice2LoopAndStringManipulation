@@ -56,12 +56,17 @@ namespace Excersice2LoopAndStringManipulation
             Console.WriteLine("\tYou will be asked to enter a sentence of your choise.");
             Console.WriteLine("\tThe program will repeat the sentence ten times!");
 
+            // declare a stringArray with 10 elements 
             string[] sentences = new string[10];
+            // the user is asked to type a string message
             Console.WriteLine("\n\tGive me a sencence and I will repeat it ten times for you:\n\t");
+            // user input is stored in the variable sentence
             string sentence = Console.ReadLine();
 
+            // Message to user to confirm what they submitted
             Console.WriteLine("\n\tYou wrote:" + "\t" + sentence +"\n");
 
+            // save variable sentence in every element in the stringArray
             sentences[0] = sentence;
             sentences[1] = sentence;
             sentences[2] = sentence;
@@ -73,10 +78,12 @@ namespace Excersice2LoopAndStringManipulation
             sentences[8] = sentence;
             sentences[9] = sentence;
 
-            Console.WriteLine("\tYour sentence repeated 10 times:\n");
+            Console.WriteLine("\tYour sentence repeated 10 times:");
+            //for loop to print out the 10 elements
             foreach (var item in sentences)
             {
-                Console.Write("\t" + item);
+                // print out on one line and seperated with a comma and space between each sentence.
+                Console.Write(item + ", ");
             }
             Console.WriteLine("\n");
 
