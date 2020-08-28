@@ -9,10 +9,10 @@ namespace Excersice2LoopAndStringManipulation
 {
     class Program
     {
-        
+
         static void Main(string[] args)
         {
-            Menu();  
+            Menu();
         }
 
         private static void Menu()
@@ -46,7 +46,7 @@ namespace Excersice2LoopAndStringManipulation
                     Environment.Exit(0);
                     break;
                 default:
-                    break;    
+                    break;
             }
         }
 
@@ -68,8 +68,44 @@ namespace Excersice2LoopAndStringManipulation
 
             // Split the sentence into a stringArray
             string[] splitSentence = inputSentence.Split(" ");
-            
+
+            //Felhanteringskontroll för att slippa IndexOutOfRangeException
+            //Till exempel
+            // if(splitSentence.Length < 3)
+            // {
+            //     System.Console.WriteLine("To few words in sentence.");
+            //     Menu();
+            // }
             Console.WriteLine("\tThe third word in your sentence is: " + splitSentence[2] + "\n");
+
+            // directs the user back to the main menu
+            Menu();
+        }
+
+        //Förslag på RepeatWord metoden utan array.
+        private static void RepeatWordSuggestion()
+        {
+            Console.WriteLine("\t##### Repetition #####\n");
+            Console.WriteLine("\tYou will be asked to enter a sentence of your choice.");
+            Console.WriteLine("\tThe program will repeat the sentence ten times!");
+
+            // the user is asked to type a string message
+            Console.WriteLine("\n\tGive me a senctence and I will repeat it ten times for you:\n\t");
+
+            // user input is stored in the variable sentence
+            string sentence = Console.ReadLine();
+
+            // Message to user to confirm what they submitted
+            Console.WriteLine("\n\tYou wrote:" + "\t" + sentence + "\n");
+
+            Console.WriteLine("\tYour sentence repeated 10 times:");
+
+            for (var i = 0; i < 10; i++)
+            {
+                Console.Write(sentence + ", ");
+            }
+
+            Console.WriteLine("\n");
 
             // directs the user back to the main menu
             Menu();
@@ -91,7 +127,7 @@ namespace Excersice2LoopAndStringManipulation
             string sentence = Console.ReadLine();
 
             // Message to user to confirm what they submitted
-            Console.WriteLine("\n\tYou wrote:" + "\t" + sentence +"\n");
+            Console.WriteLine("\n\tYou wrote:" + "\t" + sentence + "\n");
 
             // save variable sentence in every element in the stringArray
             sentences[0] = sentence;
@@ -142,9 +178,9 @@ namespace Excersice2LoopAndStringManipulation
         }
 
         private static void MoreTickets()
-            // Method when user wants to buy 2 or more tickets. 
-            // The method checks for how many tickets to buy and the age of each person.
-            // It then calculates the total amount and displays how many tickets and total price.
+        // Method when user wants to buy 2 or more tickets. 
+        // The method checks for how many tickets to buy and the age of each person.
+        // It then calculates the total amount and displays how many tickets and total price.
         {
             // declaring variables and some starting values
             string strNumber, strTickets;
@@ -170,17 +206,19 @@ namespace Excersice2LoopAndStringManipulation
                 age = int.Parse(strNumber);
                 Console.WriteLine("", i);
 
-                if (age > 5 && age < 20)
+                //Några värden tas inte upp av villkoren nedan e.g: 5, 20, 64, 100 
+
+                if (age > 5 && age < 20) // age >= 5 && age < 20
                     youth += 80;
-                else if (age > 64 && age < 100)
+                else if (age > 64 && age < 100) // age >= 64 && age <= 100
                     adult += 90;
-                else if (age > 20 && age < 64) 
+                else if (age > 20 && age < 64)  // age >= 20 && age < 64
                     senior += 120;
                 else if (age < 5 || age > 100)
                     free += 0;
                 else
                     Console.WriteLine("Something went wrong! Did you really enter a digit number?");
-                
+
                 i++;
                 // breaks the do loop when number of tickets are filled.
             } while (i < tickets);
@@ -188,7 +226,7 @@ namespace Excersice2LoopAndStringManipulation
             // sums up the tickets and prints it out in the console.
             totaltickets = youth + adult + senior + free;
             Console.WriteLine("\tYou get a total of " + tickets + " tickets.");
-            Console.WriteLine("\tYour total ticket price is: " + totaltickets +"kr\n");
+            Console.WriteLine("\tYour total ticket price is: " + totaltickets + "kr\n");
 
             // directs the user back to the main menu
             Menu();
@@ -205,12 +243,14 @@ namespace Excersice2LoopAndStringManipulation
             number = Console.ReadLine();
             age = int.Parse(number);
 
+            //Några värden tas inte upp av villkoren nedan e.g: 5, 20, 64, 100 
+
             // if statement to give user correct ticket price
-            if (age > 5 && age < 20)
+            if (age > 5 && age < 20) // age >= 5 && age < 20
                 Console.WriteLine("\nYou are under 20 years old! \nYour ticket price is: 80 kr.");
-            else if (age > 64 && age < 100)
+            else if (age > 64 && age < 100) // age >= 64 && age <= 100
                 Console.WriteLine("\nYou are a senior over 64 years! \nYour ticket price is: 90 kr.");
-            else if (age > 20 && age < 64)
+            else if (age > 20 && age < 64) // age >= 20 && age < 64
                 Console.WriteLine("\nSince you are not a senior or youth! \nYour ticket price is: 120 kr.");
             else if (age < 5 || age > 100)
                 Console.WriteLine("\nYou go FREE!! Everybody under 5 and over 100 years old goes to the cinema FREE!!");
